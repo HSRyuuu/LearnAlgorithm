@@ -39,6 +39,7 @@ public class Boj_1940 {
                 front++;
             }
         }
+
         System.out.println(count);
     }
 }

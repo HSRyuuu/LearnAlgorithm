@@ -9,8 +9,9 @@ public class Boj_10866_deque {
     public static StringBuilder sb = new StringBuilder();
     public static int rear = 0;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         int n = Integer.parseInt(br.readLine());
         arr = new int[n];
         for(int i=0;i<n;i++){

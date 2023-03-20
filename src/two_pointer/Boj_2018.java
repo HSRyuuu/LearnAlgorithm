@@ -29,6 +29,5 @@ public class Boj_2018 {
             }
         }
         System.out.println(count);
-
     }
 }
