@@ -20,3 +20,26 @@ N을 입력받아 가지수를 출력하는 프로그램을 작성하시오.
 15
 ## 예제 출력  
 4
+## 풀이
+예를들어 N = 15 라고 해보자,
+
+int[] arr = new int[15+1]; 배열을 만들어 각 인덱스 번호에 각 자연수를 넣어준다.
+
+- arr = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 }
+
+시작은 start_index = 1, end_index = 1 로 지정한다.
+
+sum은 start_index 부터 end_index까지 더하는 것이므로 초기값은 1이다.
+
+count의 초기값이 1인 이유는 end_index=start_index=n 인 경우를 미리 더해준 것이다.
+
+1. sum < n 인 경우
+- end_index ++
+- sum에 ++된 end_index를 더해준다.
+2. sum == n 인 경우
+- count ++
+- end_index++
+- sum에 ++된 end_index를 더해준다.
+2. sum > n인 경우
+- sum - =start_index
+- start_index ++
