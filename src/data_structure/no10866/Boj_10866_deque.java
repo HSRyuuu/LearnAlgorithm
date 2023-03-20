@@ -1,4 +1,5 @@
-package data_structure;
+package data_structure.no10866;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

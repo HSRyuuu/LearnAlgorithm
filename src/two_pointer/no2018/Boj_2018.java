@@ -1,4 +1,4 @@
-package two_pointer;
+package two_pointer.no2018;
 import java.util.Scanner;
 public class Boj_2018 {
     public static void main(String[] args) {

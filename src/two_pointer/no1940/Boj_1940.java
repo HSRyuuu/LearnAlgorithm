@@ -1,4 +1,4 @@
-package two_pointer;
+package two_pointer.no1940;
 
 import java.io.BufferedReader;
 import java.io.IOException;
