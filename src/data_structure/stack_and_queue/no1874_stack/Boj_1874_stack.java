@@ -1,4 +1,4 @@
-package data_structure.no1874;
+package data_structure.stack_and_queue.no1874_stack;
 
 import java.util.Scanner;
 import java.util.Stack;
