@@ -1,4 +1,4 @@
-package data_structure.stack_and_queue.no10866_deque;
+package data_structure.queue.no10866_deque;
 
 import java.io.BufferedReader;
 import java.io.IOException;

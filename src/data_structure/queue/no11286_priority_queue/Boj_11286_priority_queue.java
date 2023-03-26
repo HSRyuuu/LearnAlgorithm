@@ -1,4 +1,4 @@
-package data_structure.stack_and_queue.no11286_priority_queue;
+package data_structure.queue.no11286_priority_queue;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
