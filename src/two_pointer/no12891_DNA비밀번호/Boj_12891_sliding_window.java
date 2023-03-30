@@ -1,4 +1,4 @@
-package two_pointer.no12891_sliding_window;
+package two_pointer.no12891_DNA비밀번호;
 
 import java.io.BufferedReader;
 import java.io.IOException;

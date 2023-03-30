@@ -1,4 +1,4 @@
-package greedy_algorithm.no11047;
+package greedy_algorithm.no11047_동전0;
 
 import java.io.BufferedReader;
 import java.io.IOException;

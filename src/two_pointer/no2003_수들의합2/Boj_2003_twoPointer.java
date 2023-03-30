@@ -1,4 +1,4 @@
-package two_pointer.no2003;
+package two_pointer.no2003_수들의합2;
 
 import java.io.BufferedReader;
 import java.io.IOException;

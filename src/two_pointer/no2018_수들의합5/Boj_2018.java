@@ -1,4 +1,4 @@
-package two_pointer.no2018;
+package two_pointer.no2018_수들의합5;
 import java.util.Scanner;
 public class Boj_2018 {
     public static void main(String[] args) {

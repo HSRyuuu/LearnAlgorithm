@@ -1,4 +1,4 @@
-package greedy_algorithm.no1931;
+package greedy_algorithm.no1931_회의실배정;
 
 import java.io.BufferedReader;
 import java.io.IOException;

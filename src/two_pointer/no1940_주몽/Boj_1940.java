@@ -1,4 +1,4 @@
-package two_pointer.no1940;
+package two_pointer.no1940_주몽;
 
 import java.io.BufferedReader;
 import java.io.IOException;
