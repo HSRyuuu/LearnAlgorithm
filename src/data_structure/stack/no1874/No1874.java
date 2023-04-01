@@ -3,7 +3,7 @@ package data_structure.stack.no1874;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Boj_1874_stack {
+public class No1874 {
     static StringBuilder sb = new StringBuilder();
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);

@@ -2,7 +2,7 @@ package brute_force.no1436_영화감독숌;
 
 import java.util.Scanner;
 
-public class no1436 {
+public class No1436 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 

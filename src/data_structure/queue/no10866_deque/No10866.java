@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Boj_10866_deque {
+public class No10866 {
     public static int[] arr;
     public static StringBuilder sb = new StringBuilder();
     public static int rear = 0;

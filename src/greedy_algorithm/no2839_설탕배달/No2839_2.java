@@ -2,7 +2,7 @@ package greedy_algorithm.no2839_설탕배달;
 
 import java.util.Scanner;
 
-public class no2839_advanced {
+public class No2839_2 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 

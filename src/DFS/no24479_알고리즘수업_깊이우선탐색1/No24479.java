@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class no24479 {
+public class No24479 {
     static boolean[] visited;
     static ArrayList<Integer>[] A;
     static StringBuilder sb = new StringBuilder();
