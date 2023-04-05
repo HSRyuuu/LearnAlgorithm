@@ -66,11 +66,11 @@ public class No1260 {
 
         while(!queue.isEmpty()){
             int now = queue.poll();
-
+            bfsVisited[now] = true;
             if(!bfsVisited[now]){
                 bfsBuilder.append(now+" ");
             }
-            bfsVisited[now] = true;
+
 
             for(int i : lists[now]){
                 if(!bfsVisited[i]){
