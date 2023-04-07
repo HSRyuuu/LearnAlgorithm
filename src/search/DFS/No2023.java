@@ -1,4 +1,4 @@
-package DFS;
+package search.DFS;
 
 import java.util.Scanner;
 

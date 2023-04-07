@@ -1,4 +1,4 @@
-package BFS;
+package search.BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.*;
 
 
 public class No1260 {
-    //1260번 : DFS와 BFS
+    //1260번 : DFS와 search.BFS
     static boolean[] dfsVisited;
     static boolean[] bfsVisited;
     static ArrayList<Integer>[] lists;

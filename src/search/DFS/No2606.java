@@ -1,4 +1,4 @@
-package DFS;
+package search.DFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
