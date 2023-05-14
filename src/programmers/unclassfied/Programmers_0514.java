@@ -8,7 +8,7 @@ import java.util.Map;
  * 추억 점수
  * LV1
  */
-public class Programmers0514 {
+public class Programmers_0514 {
     public static void main(String[] args) {
             //입력 값
             String[] name = {"may", "kein", "kain", "radi"};
