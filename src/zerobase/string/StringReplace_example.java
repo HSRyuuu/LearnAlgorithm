@@ -9,7 +9,7 @@ public class StringReplace_example {
         System.out.println("변경 전 : " + str);
         System.out.println("변경 후 : "+solution(str, find, to));
 
-        str = "Hello Man! Hello Guys!!!";
+        str = "Hello Man! Hello Guys!!";
         find = "Hello";
         to = "~Hi~";
         System.out.println("변경 전 : " + str);
