@@ -1,4 +1,4 @@
-package programmers.unclassfied;
+package programmers.math;
 
 /** 자릿수 더하기
  *
