@@ -8,7 +8,7 @@ package programmers.math;
  * 제한사항
  * N의 범위 : 100,000,000 이하의 자연수
  */
-public class Math1 {
+public class 자릿수더하기 {
     public static void main(String[] args) {
         //입력 값
         int N1 = 123; //6

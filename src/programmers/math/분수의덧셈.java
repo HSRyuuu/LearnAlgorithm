@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 두 분수를 더한 값을 기약분수로 나타내어라.
  * 분자 : answer[0], 분모 : answer[1]
  */
-public class Math2 {
+public class 분수의덧셈 {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(solution(1,2,3,4)));
         System.out.println(Arrays.toString(solution(9,2,1,3)));
