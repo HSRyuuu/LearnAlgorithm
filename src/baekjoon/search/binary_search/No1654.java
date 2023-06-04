@@ -8,38 +8,41 @@ import java.util.StringTokenizer;
 
 public class No1654 {
     // 1654번 : 랜선 자르기
-    static int ans;
     static int k;
     static int n;
+    static int[] arr;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         k = Integer.parseInt(st.nextToken());
         n = Integer.parseInt(st.nextToken());
-        int[] arr = new int[k];
+        arr = new int[k];
+
+        long max = Long.MIN_VALUE;
+        long min = 0;
         for(int i=0;i<k;i++){
-            arr[i] = Integer.parseInt(br.readLine());
+            int n = Integer.parseInt(br.readLine());
+            arr[i] = n;
+            max = Math.max(n,max);
         }
-        Arrays.sort(arr);
-
-        int min = 0;
-        int max = arr[k-1]++;
-        int mid = 0;
-
+        max++;
         while(min<max){
-            int count = 0;
-            mid = (max+min)/2;
-            for (int i=0;i<k;i++){
-                count+=(arr[i]/mid);
-            }
-            if(count<n){
+            long mid = (min+max)/2;
+            long cnt = cutting(mid);
+
+            if(cnt<n){
                 max = mid;
-            }else{
+            }else {
                 min = mid+1;
             }
         }
         System.out.println(min-1);
-
-
+    }
+    static long cutting(long x){
+        long result = 0;
+        for(int i=0;i<arr.length;i++){
+            result+=arr[i]/x;
+        }
+        return result;
     }
 }

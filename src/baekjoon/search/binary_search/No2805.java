@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
  * 실버2
  */
 public class No2805 {
+    static int[] trees;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -19,7 +20,7 @@ public class No2805 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int[] trees = new int[N];
+        trees = new int[N];
         int max = 0;
         int min = 0;
         st = new StringTokenizer(br.readLine());
@@ -31,7 +32,7 @@ public class No2805 {
         //이분탐색
         while(min<max){
             int mid = (min+max)/2;
-            long sum = cutting(trees,mid);
+            long sum = cutting(mid);
 
             if(sum < M){
                 max = mid;
@@ -39,10 +40,9 @@ public class No2805 {
                 min = mid+1;
             }
         }
-
         System.out.println(min-1);
     }
-    static long cutting(int[] trees, int height){
+    static long cutting(int height){
         long result = 0;
         for(int i=0;i<trees.length;i++){
             if(trees[i] > height){
