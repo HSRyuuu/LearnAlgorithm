@@ -16,44 +16,40 @@ public class No18111 {
         int N = Integer.parseInt(st.nextToken()); //세로
         int M = Integer.parseInt(st.nextToken()); //가로
         int B = Integer.parseInt(st.nextToken()); //처음 블록 개수
-
+        int[][] ground = new int[N][M];
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-        int[][] ground =  new int[N][M];
         for(int i=0;i<N;i++){
             st = new StringTokenizer(br.readLine());
-            for(int j=0;j<M;j++){
-                int v = Integer.parseInt(st.nextToken());
-                ground[i][j] = v;
-                min = Math.min(min, v);
-                max = Math.max(max, v);
+            for (int j = 0; j < M; j++) {
+                ground[i][j] = Integer.parseInt(st.nextToken());
+                max = Math.max(max,ground[i][j]);
+                min = Math.min(min,ground[i][j]);
             }
         }
-
-        int ansSeconds = Integer.MAX_VALUE;
-        int ansHeight = -1;
-        for(int i = min;i<=max;i++){
-            int seconds = 0;
-            int inventory = B;
-            for(int j=0;j<N;j++){
-                for(int k=0;k<M;k++){
-                    int diff = ground[j][k] - i;
-
-                    if(diff>0){ //블록 제거
-                        seconds += Math.abs(diff)*2;
-                        inventory += Math.abs(diff);
-                    }else if(diff<0){// 블록 추가
-                        seconds+=Math.abs(diff);
-                        inventory-=Math.abs(diff);
+        int ansTime = Integer.MAX_VALUE;
+        int ansGnd = 0;
+        for(int k=max;k>=min;k--){
+            int curTime = 0;
+            int inven = B;
+            for(int i=0;i<N;i++){
+                for (int j = 0; j < M; j++) {
+                    int diff = k-ground[i][j];
+                    if(diff<0){ //블록 제거
+                        curTime-=diff*2;
+                        inven-=diff;
+                    }else{ //블록 추가
+                        curTime +=diff;
+                        inven-=diff;
                     }
                 }
             }
-            if(inventory>=0 && seconds <=ansSeconds){
-                ansSeconds = seconds;
-                ansHeight = i;
+            //max부터 반복문을 돌기 때문에 시간이 같은 경우는 무시
+            if(inven>=0 && curTime<ansTime){
+                ansTime = curTime;
+                ansGnd = k;
             }
         }
-        System.out.println(ansSeconds+" "+ansHeight);
-
+        System.out.println(ansTime+" "+ansGnd);
     }
 }
