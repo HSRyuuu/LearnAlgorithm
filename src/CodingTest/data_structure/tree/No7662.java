@@ -9,7 +9,7 @@ import java.util.TreeMap;
  * package : CodingTest.data_structure.tree
  * class name : No7662.java
  * date : 2023-06-14 오전 11:56
- * note : gold 4 / treemap , 우선순위 큐
+ * note : gold 4 / TreeMap , 우선순위 큐
  */
 public class No7662 {
     public static void main(String[] args) throws IOException {
