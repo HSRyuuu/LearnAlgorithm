@@ -1,4 +1,4 @@
-package CodingTest.data_structure.string;
+package CodingTest.string;
 
 import java.io.BufferedReader;
 import java.io.IOException;

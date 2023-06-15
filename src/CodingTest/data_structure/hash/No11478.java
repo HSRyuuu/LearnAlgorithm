@@ -1,4 +1,4 @@
-package CodingTest.hashing;
+package CodingTest.data_structure.hash;
 
 import java.io.BufferedReader;
 import java.io.IOException;
