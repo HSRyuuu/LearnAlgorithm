@@ -1,4 +1,4 @@
-package CodingTest.data_structure.tree;
+package CodingTest.data_structure.treemap;
 
 import java.io.BufferedReader;
 import java.io.IOException;

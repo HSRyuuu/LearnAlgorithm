@@ -4,60 +4,65 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
-
-public class No1260 {
-    //1260번 : DFS와 search.BFS
-    static boolean[] dfsVisited;
-    static boolean[] bfsVisited;
-    static ArrayList<Integer>[] lists;
-    static Queue<Integer> queue = new LinkedList<>();
-    static StringBuilder dfsBuilder = new StringBuilder();
-    static StringBuilder bfsBuilder = new StringBuilder();
+/**
+ * package : CodingTest.graph.BFS
+ * class name : No1260.java
+ * date : 2023-06-16 오후 11:26
+ * note : BFS와 DFS / silver2 / graph완전 탐색
+ */
+public class No1260{
+    static boolean[] visited;
+    static ArrayList<Integer>[] lists; //DFS를 위한 list형 배열
+    static Queue<Integer> queue = new LinkedList<>();//BFS를 위한 큐
+    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        int start = Integer.parseInt(st.nextToken());
-        dfsVisited = new boolean[n+1];
-        bfsVisited = new boolean[n+1];
-        lists = new ArrayList[n+1];
+        int N = Integer.parseInt(st.nextToken()); //정점의 개수
+        int M = Integer.parseInt(st.nextToken()); //간선의 개수 (케이스 수)
+        int start = Integer.parseInt(st.nextToken()); //탐색 시작 정점
 
-        for(int i=0;i<=n;i++){
+        visited = new boolean[N+1];
+        lists = new ArrayList[N+1];
+
+        //lists 초기화
+        for(int i=0;i<=N;i++){
             lists[i] = new ArrayList<>();
         }
-
-        for(int i=0;i<m;i++){
+        //간선 - 노드 연결
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int node1 = Integer.parseInt(st.nextToken());
             int node2 = Integer.parseInt(st.nextToken());
 
+            //그래프는 양방향을 추가해줘야 한다.
             lists[node1].add(node2);
             lists[node2].add(node1);
         }
 
-        for(int i=1;i<=n;i++){
+        //방문할 수 있는 정점이 여러개인 경우 정점 번호가 작은 것을 먼저 방문한다.
+        for (int i = 1; i <= N; i++) {
             Collections.sort(lists[i]);
         }
-
         DFS(start);
-        BFS(start);
+        System.out.println(sb);
 
-        System.out.println(dfsBuilder);
-        System.out.println(bfsBuilder);
+        //visiter, StringBuilder 초기화
+        visited = new boolean[N+1];
+        sb.setLength(0);
+        BFS(start);
+        System.out.println(sb);
 
     }
     public static void DFS(int node){
-        if(dfsVisited[node]) return;
-
-        dfsVisited[node] = true;
-        dfsBuilder.append(node+" ");
-        for(int i : lists[node]){
-            if(!dfsVisited[i]){
-                DFS(i);
+        if(visited[node])return;
+        visited[node] = true;
+        sb.append(node+" ");
+        for (int n : lists[node]) {
+            if(!visited[n]){
+                DFS(n);
             }
         }
     }
@@ -65,18 +70,19 @@ public class No1260 {
         queue.offer(node);
 
         while(!queue.isEmpty()){
-            int now = queue.poll();
-            bfsVisited[now] = true;
-            if(!bfsVisited[now]){
-                bfsBuilder.append(now+" ");
+            int cur = queue.poll();
+            if(!visited[cur]){
+                sb.append(cur+" ");
             }
+            visited[cur] = true;
 
-
-            for(int i : lists[now]){
-                if(!bfsVisited[i]){
-                    queue.offer(i);
+            for (int n : lists[cur]) {
+                if(!visited[n]){
+                    queue.offer(n);
                 }
             }
+
         }
     }
+
 }
