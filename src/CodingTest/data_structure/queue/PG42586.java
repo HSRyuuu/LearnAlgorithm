@@ -7,7 +7,7 @@ import java.util.*;
  * date : 2023-06-13 오후 3:27
  * note : 기능개발 / 스택, 큐
  */
-class Solution {
+class Solution42586 {
     public int[] solution(int[] progresses, int[] speeds) {
         List<Integer> answer = new LinkedList<>();
 
@@ -61,7 +61,7 @@ class Solution {
 }
 public class PG42586 {
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution42586 sol = new Solution42586();
         int[] progresses = {93, 30, 55};
         int[] speeds = {1,30,5};
         System.out.println(Arrays.toString(sol.solution(progresses,speeds)));
