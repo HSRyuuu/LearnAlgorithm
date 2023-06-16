@@ -1,4 +1,4 @@
-package CodingTest.search.DFS;
+package CodingTest.graph.DFS;
 
 import java.util.Scanner;
 

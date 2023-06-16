@@ -1,4 +1,4 @@
-package CodingTest.search.BFS;
+package CodingTest.graph.BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;

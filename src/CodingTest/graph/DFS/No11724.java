@@ -1,4 +1,4 @@
-package CodingTest.search.DFS;
+package CodingTest.graph.DFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
