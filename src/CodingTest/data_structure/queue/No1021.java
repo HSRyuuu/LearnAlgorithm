@@ -26,6 +26,7 @@ public class No1021 {
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
             int target = Integer.parseInt(st.nextToken());
+
             if(list.get(0) == target){
                 list.remove(0);
                 continue;
@@ -36,11 +37,11 @@ public class No1021 {
 
             if(findFirst(list,target) < findLast(list,target)){
                 while(list.get(0) != target){
-                    no2(list);
+                    no2MoveLeft(list);
                 }
             }else{
                 while(list.get(0) != target){
-                    no3(list);
+                    no3MoveRight(list);
                 }
             }
             list.remove(0);
@@ -48,12 +49,11 @@ public class No1021 {
         System.out.println(result);
 
     }
-    static void no2(List<Integer> list){
+    static void no2MoveLeft(List<Integer> list){
         list.add(list.remove(0));
         result++;
-
     }
-    static void no3(List<Integer> list){
+    static void no3MoveRight(List<Integer> list){
         list.add(0,list.remove(list.size()-1));
         result++;
     }
