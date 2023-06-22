@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class No12891_sliding_window {
+public class No12891 {
     // 12891번 : DNA 비밀번호
         static int A,C,G,T;
         static int countArr[] = new int[4]; // A, C, G, T : 부분 문자열의 각 알파벳 개수 저장

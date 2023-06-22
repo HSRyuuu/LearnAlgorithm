@@ -5,9 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
+/**
+ * package : CodingTest.search.binary_search
+ * class name : No1920.java
+ * date : 2023-06-22 오후 5:06
+ * note : 원하는 정수 찾기 / silver 4 / 이분탐색
+ */
 public class No1920 {
-    //1920번 : 원하는 정수 찾기
+    //1920번 :
+
     static int[] arr;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

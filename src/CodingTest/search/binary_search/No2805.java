@@ -1,54 +1,56 @@
 package CodingTest.search.binary_search;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * 2805번 : 나무 자르기
- * 이분탐색, 매개변수 탐색
- * 실버2
+ * package : CodingTest.search.binary_search
+ * class name : No2805.java
+ * date : 2023-06-22 오후 4:32
+ * note : 나무 자르기 / silver 2 / 이분탐색
  */
-public class No2805 {
+public class No2805{
     static int[] trees;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken()); //나무의 수
+        int target = Integer.parseInt(st.nextToken()); //나무의 길이
+        trees = new int[n];
 
-        trees = new int[N];
-        int max = 0;
-        int min = 0;
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
+
+        int max = 0;
+        for (int i = 0; i < n; i++) {
             trees[i] = Integer.parseInt(st.nextToken());
-            max = Math.max(trees[i],max);
+            max = Math.max(trees[i], max);
         }
 
-        //이분탐색
-        while(min<max){
-            int mid = (min+max)/2;
+        int left = 0;
+        int right = max;
+        while(left < right){
+            int mid = (left + right) / 2;
             long sum = cutting(mid);
 
-            if(sum < M){
-                max = mid;
+            if(sum < target){
+                right = mid;
             }else{
-                min = mid+1;
+                left = mid+1;
             }
         }
-        System.out.println(min-1);
+        System.out.println(left-1);
     }
-    static long cutting(int height){
-        long result = 0;
-        for(int i=0;i<trees.length;i++){
-            if(trees[i] > height){
-                result += trees[i] - height;
+    static long cutting(int cutPoint){
+        long total = 0;
+        for(int tree : trees){
+            if(tree > cutPoint){
+                total += tree - cutPoint;
             }
         }
-        return  result;
+        return total;
     }
+
 }

@@ -4,44 +4,49 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
-public class No1654 {
-    // 1654번 : 랜선 자르기
-    static int k;
-    static int n;
-    static int[] arr;
+/**
+ * package : CodingTest.search.binary_search
+ * class name : No1654.java
+ * date : 2023-06-22 오후 4:53
+ * note : 랜선 자르기 / silver 2 / 이분탐색
+ */
+public class No1654{
+    static int[] lines;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        k = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
-        arr = new int[k];
 
-        long max = Long.MIN_VALUE;
-        long min = 0;
-        for(int i=0;i<k;i++){
-            int n = Integer.parseInt(br.readLine());
-            arr[i] = n;
-            max = Math.max(n,max);
+        int K = Integer.parseInt(st.nextToken()); // 갖고 있는 랜선의 개수
+        int N = Integer.parseInt(st.nextToken()); //필요한 랜선의 개수
+        lines = new int[K];
+
+        long max = 0;
+        for (int i = 0; i < K; i++) {
+            lines[i] = Integer.parseInt(br.readLine());
+            max = Math.max(lines[i], max);
         }
         max++;
-        while(min<max){
-            long mid = (min+max)/2;
-            long cnt = cutting(mid);
 
-            if(cnt<n){
-                max = mid;
-            }else {
-                min = mid+1;
+        long left = 0;
+        long right = max;
+        while(left < right){
+            long mid = (right + left) / 2;
+            long amount = getLines(mid);
+
+            if(amount < N){
+                right = mid;
+            }else{
+                left = mid+1;
             }
         }
-        System.out.println(min-1);
+
+        System.out.println(left-1);
     }
-    static long cutting(long x){
-        long result = 0;
-        for(int i=0;i<arr.length;i++){
-            result+=arr[i]/x;
+    static long getLines(long len){
+        long amount = 0;
+        for(int line : lines){
+            amount += line / len;
         }
-        return result;
+        return amount;
     }
 }
