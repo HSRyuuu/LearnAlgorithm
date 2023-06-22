@@ -1,4 +1,4 @@
-package CodingTest.data_structure.queue;
+package CodingTest.data_structure.deque;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 /**
- * package : baekjoon.data_structure.queue
+ * package : baekjoon.data_structure.deque
  * class name : No1021.java
  * date : 2023-06-13 오후 2:31
  * note : 회전하는 큐 / silver3 / deque

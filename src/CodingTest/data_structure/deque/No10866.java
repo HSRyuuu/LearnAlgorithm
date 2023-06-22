@@ -1,10 +1,16 @@
-package CodingTest.data_structure.queue;
+package CodingTest.data_structure.deque;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ * package : CodingTest.data_structure.deque
+ * class name : No10866.java
+ * date : 2023-06-22 오후 11:47
+ * note : 덱 / silver 4 / 데크
+ */
 public class No10866 {
     // 10866번 : 덱
     public static int[] arr;

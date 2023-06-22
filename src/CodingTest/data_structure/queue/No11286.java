@@ -4,6 +4,12 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+/**
+ * package : CodingTest.data_structure.queue
+ * class name : No11286.java
+ * date : 2023-06-22 오후 11:48
+ * note : 절댓값 힙 / silver 1 / 큐
+ */
 public class No11286 {
     // 11286번 : 절댓값 힙
     public static void main(String[] args){
