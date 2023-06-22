@@ -8,9 +8,9 @@ import java.util.PriorityQueue;
  * package : CodingTest.data_structure.priority_queue
  * class name : No1766.java
  * date : 2023-06-22 오후 11:46
- * note : 문제집 / gold 2 / 우선순위큐
+ * note : 카드 정렬하기 / gold 4 / 우선순위큐
  */
-public class No1766{
+public class No1715 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         PriorityQueue<Integer> pq = new PriorityQueue<>();
