@@ -1,7 +1,12 @@
-package CodingTest.two_pointer;
+package CodingTest.two_pointer.easy;
 import java.util.Scanner;
+/**
+ * package : CodingTest.two_pointer
+ * class name : No2018.java
+ * date : 2023-06-23 오후 6:06
+ * note : 수들의 합 5 / silver 5 / 투포인터
+ */
 public class No2018 {
-    // 2018번 : 수들의 합 5
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

@@ -86,7 +86,6 @@ public class No2468{
                     queue.offer(new int[]{nx, ny});
                 }
             }
-
         }
     }
 }

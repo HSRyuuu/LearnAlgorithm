@@ -5,75 +5,92 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class No12891 {
-    // 12891번 : DNA 비밀번호
-        static int A,C,G,T;
-        static int countArr[] = new int[4]; // A, C, G, T : 부분 문자열의 각 알파벳 개수 저장
-         static String fullStr;
-        static int front, end;
+/**
+ * package : CodingTest.two_pointer
+ * class name : No12891.java
+ * date : 2023-06-23 오후 6:41
+ * note : DNA 비밀번호 / silver 2 / 투포인터 (슬라이딩 윈도우)
+ */
+public class No12891{
+    static int[] dnaArr;
+    static String dnaStr;
+    static int[] arr = new int[4];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        public static void main(String[] args) throws IOException {
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            // s : 전체 문자열 길이 , p : 부분 문자열 길이
-            int s = Integer.parseInt(st.nextToken());
-            int p = Integer.parseInt(st.nextToken());
+        int S = Integer.parseInt(st.nextToken()); //전체 문자열의 길이
+        int P = Integer.parseInt(st.nextToken()); //부분 문자열의 길이
 
-            //전체 문자열 저장
-            fullStr = br.readLine();
+        dnaStr = br.readLine();
 
-            //각 문자 A,C,G,T의 필요 개수를 저장
-            st = new StringTokenizer(br.readLine());
-            A = Integer.parseInt(st.nextToken());
-            C = Integer.parseInt(st.nextToken());
-            G = Integer.parseInt(st.nextToken());
-            T = Integer.parseInt(st.nextToken());
-
-            //front인덱스, end 인덱스의 초기값 지정  /  count : 가능한 개수
-            front = 0;
-            end = p-1;
-            int count = 0;
-
-            //첫번째 부분 문자열에 대해 , countArr 설정
-            //마지막 인덱스는 while문 내에서 시작할때 판단하므로 제외
-            for(int i=front;i<=end;i++){
-                if(fullStr.charAt(i)=='A')countArr[0]++;
-                else if(fullStr.charAt(i)=='C')countArr[1]++;
-                else if(fullStr.charAt(i)=='G')countArr[2]++;
-                else if(fullStr.charAt(i)=='T')countArr[3]++;
+        dnaArr = new int[4]; // A, C, G, T
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < 4; i++) {
+            dnaArr[i] = Integer.parseInt(st.nextToken());
+        }
+        //맨 처음 문자열
+        for (int i = 0; i < P; i++) {
+            char ch  = dnaStr.charAt(i);
+            if(ch == 'A'){
+                arr[0]++;
+            }else if(ch == 'C'){
+                arr[1]++;
+            }else if(ch == 'G'){
+                arr[2]++;
+            }else if(ch == 'T'){
+                arr[3]++;
             }
-            if(checkAvailable())count++;
-
-            //while문의 마지막에 end++해서 fullStr.length()와 같아지면 종료
-            while(end!=fullStr.length()-1){
-                addEndIndex();
-                removeFrontIndex();
-                front++;
-                end++;
-
-                if(checkAvailable())count++;
-            }
-            System.out.println(count);
         }
 
-    private static void removeFrontIndex() {
-        if(fullStr.charAt(front)=='A')countArr[0]--;
-        else if(fullStr.charAt(front)=='C')countArr[1]--;
-        else if(fullStr.charAt(front)=='G')countArr[2]--;
-        else if(fullStr.charAt(front)=='T')countArr[3]--;
-    }
+        int cnt = 0;
+        int pointer = 0;
+        while(true){
+            if(arrayCheck(arr)){
+                cnt++;
+            }
 
-    private static void addEndIndex() {
-        if(fullStr.charAt(end+1)=='A')countArr[0]++;
-        else if(fullStr.charAt(end+1)=='C')countArr[1]++;
-        else if(fullStr.charAt(end+1)=='G')countArr[2]++;
-        else if(fullStr.charAt(end+1)=='T')countArr[3]++;
-    }
+            if(pointer + P == dnaStr.length())break;
 
-    //countArr이 비밀번호로 이용 가능한지 판단하는 checkAvailable 메소드
-    public static boolean checkAvailable(){
-            if(countArr[0]>=A && countArr[1]>=C && countArr[2]>=G && countArr[3]>=T)return true;
-            else return false;
+            removeFirst(pointer);
+            addLastPlus1(pointer + P);
+
+            pointer++;
         }
 
+        System.out.println(cnt);
     }
+    private static void removeFirst(int pointer){
+        char ch = dnaStr.charAt(pointer);
+        if(ch == 'A'){
+            arr[0]--;
+        }else if(ch == 'C'){
+            arr[1]--;
+        }else if(ch == 'G'){
+            arr[2]--;
+        }else if(ch == 'T'){
+            arr[3]--;
+        }
+    }
+    private static void addLastPlus1(int pointer){
+        char ch = dnaStr.charAt(pointer);
+        if(ch == 'A'){
+            arr[0]++;
+        }else if(ch == 'C'){
+            arr[1]++;
+        }else if(ch == 'G'){
+            arr[2]++;
+        }else if(ch == 'T'){
+            arr[3]++;
+        }
+    }
+
+    static boolean arrayCheck(int[] arr){
+        for (int i = 0; i < 4; i++) {
+            if(dnaArr[i] > arr[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
