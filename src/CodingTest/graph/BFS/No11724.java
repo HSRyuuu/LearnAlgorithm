@@ -12,6 +12,7 @@ import java.util.Queue;
  * class name : No11724.java
  * date : 2023-06-17 오전 10:06
  * note : 연결 요소의 개수 / silver2 / 그래프, DFS, BFS
+ *
  */
 
 public class No11724{
