@@ -1,4 +1,4 @@
-package CodingTest.search.binary_search;
+package CodingTest.binary_search;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,38 +15,37 @@ public class No1654{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        int K = Integer.parseInt(st.nextToken()); // 갖고 있는 랜선의 개수
-        int N = Integer.parseInt(st.nextToken()); //필요한 랜선의 개수
-        lines = new int[K];
+        int N = Integer.parseInt(st.nextToken()); //랜선의 개수
+        int M = Integer.parseInt(st.nextToken()); //필요한 랜선의 개수
+        lines = new int[N];
 
         long max = 0;
-        for (int i = 0; i < K; i++) {
+        for (int i = 0; i < N; i++) {
             lines[i] = Integer.parseInt(br.readLine());
             max = Math.max(lines[i], max);
         }
-        max++;
 
         long left = 0;
-        long right = max;
-        while(left < right){
-            long mid = (right + left) / 2;
+        long right = max  + 1;
+
+        while (left < right) {
+            long mid = (left + right) / 2;
             long amount = getLines(mid);
 
-            if(amount < N){
+            if(amount < M){
                 right = mid;
             }else{
-                left = mid+1;
+                left = mid + 1;
             }
         }
-
-        System.out.println(left-1);
+        System.out.println(left - 1);
     }
-    static long getLines(long len){
-        long amount = 0;
-        for(int line : lines){
-            amount += line / len;
+
+    private static long getLines(long len) {
+        long cnt = 0;
+        for (int line : lines) {
+            cnt += line / len;
         }
-        return amount;
+        return cnt;
     }
 }

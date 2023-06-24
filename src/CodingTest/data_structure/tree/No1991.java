@@ -1,5 +1,3 @@
-package CodingTest.data_structure.tree;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +8,6 @@ class Node{
     Node left;
     Node right;
 
-
     public Node(char data, Node left, Node right) {
         this.data = data;
         this.left = left;
@@ -18,83 +15,73 @@ class Node{
     }
 }
 class BinarySearchTree{
-    Node head;
-    public BinarySearchTree(char head) {
-        this.head = new Node(head,null, null);
+    Node root;
+
+    public BinarySearchTree(char data) {
+        this.root = new Node(data, null, null);
     }
 
-
-    public void insertNode(Node cur,char root, char left, char right){
-        if(cur.data == root){
+    public void insertNode(Node node, char parent, char left, char right){
+        if(node.data == parent){
             if(left == '.'){
-                cur.left = null;
+                node.left = null;
             }else{
-                cur.left =  new Node(left,null, null);
+                node.left = new Node(left, null, null);
             }
             if(right == '.'){
-                cur.right = null;
+                node.right = null;
             }else{
-                cur.right = new Node(right, null, null);
+                node.right = new Node(right, null, null);
             }
-
         }else{
-            if(cur.left != null){
-                insertNode(cur.left, root, left, right);
+            if(node.left != null){
+                insertNode(node.left, parent, left, right);
             }
-            if(cur.right != null){
-                insertNode(cur.right, root, left, right);
+            if(node.right != null){
+                insertNode(node.right, parent, left, right);
             }
         }
     }
     public void preOrder(Node node){
-        if(node == null) return;
+        if(node == null)return;
         System.out.print(node.data);
 
         preOrder(node.left);
         preOrder(node.right);
-
     }
     public void inOrder(Node node){
-        if(node == null) return;
+        if(node == null)return;
 
         inOrder(node.left);
         System.out.print(node.data);
         inOrder(node.right);
-
     }
     public void postOrder(Node node){
-        if(node == null) return;
+        if(node == null)return;
 
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.data);
     }
-
 }
-/**
- * package : CodingTest.data_structure.tree
- * class name : No1991.java
- * date : 2023-06-16 오후 10:57
- * note : 트리 순회 / preOrder, inOrder, postOrder / silver1
- */
-public class No1991 {
+public class No1991{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         int N = Integer.parseInt(br.readLine());
-
-        BinarySearchTree tree = new BinarySearchTree('A');
         StringTokenizer st;
+        BinarySearchTree bst = new BinarySearchTree('A');
+
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             char parent = st.nextToken().charAt(0);
             char left = st.nextToken().charAt(0);
             char right = st.nextToken().charAt(0);
-            tree.insertNode(tree.head, parent, left, right);
+            bst.insertNode(bst.root, parent, left, right);
         }
-        tree.preOrder(tree.head);
+        bst.preOrder(bst.root);
         System.out.println();
-        tree.inOrder(tree.head);
+        bst.inOrder(bst.root);
         System.out.println();
-        tree.postOrder(tree.head);
+        bst.postOrder(bst.root);
     }
 }

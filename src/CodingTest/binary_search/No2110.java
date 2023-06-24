@@ -1,4 +1,4 @@
-package CodingTest.search.binary_search;
+package CodingTest.binary_search;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

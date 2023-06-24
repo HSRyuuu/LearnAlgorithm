@@ -1,4 +1,4 @@
-package CodingTest.data_structure.treemap;
+package CodingTest.data_structure.priority_queue.treemap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
