@@ -1,4 +1,4 @@
-package CodingTest.greedy_algorithm;
+package CodingTest.greedy_algorithm.gold;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

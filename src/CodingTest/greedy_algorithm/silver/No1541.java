@@ -1,4 +1,4 @@
-package CodingTest.greedy_algorithm;
+package CodingTest.greedy_algorithm.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
