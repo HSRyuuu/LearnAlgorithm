@@ -25,13 +25,13 @@ public class No1931{
                 return o1[1] - o2[1];
             }
         });
+
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
             pq.offer(new int[]{start, end});
         }
-
 
         int endTime = -1;
         int cnt = 0;

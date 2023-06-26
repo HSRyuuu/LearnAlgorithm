@@ -15,7 +15,7 @@ public class No11000{
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st;
-
+        // (1) 입력받은 강의의 우선순위를 정해준다.
         PriorityQueue<int[]> pq = new PriorityQueue<>(((o1, o2) -> {
             if(o1[0] == o2[0]){
                 return o1[1] - o2[1];
@@ -23,7 +23,7 @@ public class No11000{
                 return o1[0] - o2[0];
             }
         }));
-
+        // (2) 강의를 입력받아서 pq에 저장한다.
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
@@ -31,11 +31,11 @@ public class No11000{
 
             pq.offer(new int[]{start, end});
         }
-
+        // (3) 강의실을 나타내고, 강의의 종료시간을 담을 우선순위 큐 room을 만든다.
         PriorityQueue<Integer> room = new PriorityQueue<>();
         room.offer(0);
-        List<Integer> list = new ArrayList<>();
-        list.add(0);
+
+        // (4) room에서 하나씩 값을 peek() 하여 값을 비교하고, poll()을 할지 말지 결정한다.
         while(!pq.isEmpty()){
             int[] cur = pq.poll();
             if(room.peek() <= cur[0]){
