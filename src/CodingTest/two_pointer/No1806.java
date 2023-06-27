@@ -15,51 +15,38 @@ public class No1806{
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken()); //수열 길이
-        int S = Integer.parseInt(st.nextToken()); //합
+        int N = Integer.parseInt(st.nextToken());
+        int S = Integer.parseInt(st.nextToken());
 
-        st = new StringTokenizer(br.readLine());
         int[] arr = new int[N];
-        int max = 0;
-        for (int i = 0; i < N; i++) {
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            max = Math.max(max, arr[i]);
-        }
-        if(max >= S){
-            System.out.println(1);
-            return;
         }
 
+        int len = Integer.MAX_VALUE;
         int left = 0;
-        int right = 1;
-        int len = N+1;
-        int sum = arr[left] + arr[right];
+        int right = 0;
+        int sum = arr[0];
 
-        while(left <= right && right <= arr.length-1){
-            if(sum >S){
-                len = Math.min(len, right - left + 1);
+        while(left <= right){
+            if(sum >= S){
+                len = Math.min(len, right-left+1);
+            }
+            if(sum > S){
                 sum -= arr[left++];
-            }else if(sum == S){
-                len = Math.min(len, right - left + 1);
-                right++;
-                if(right == arr.length){
-                    continue;
-                }
-                sum += arr[right];
             }else{
-                right++;
-                if(right == arr.length){
-                    continue;
+                if(right == arr.length-1){
+                    break;
                 }
-                sum += arr[right];
+                sum += arr[++right];
             }
 
         }
-        if(len > N){
+        if(len == Integer.MAX_VALUE){
             System.out.println(0);
         }else{
             System.out.println(len);
         }
-
     }
 }
