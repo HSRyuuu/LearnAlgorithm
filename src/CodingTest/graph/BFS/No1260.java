@@ -9,7 +9,7 @@ import java.util.*;
  * package :
  * class name : No1260.java
  * date : 2023-06-24 오후 1:51
- * note : DFS, BFS 기본 둘다 해보는 문제
+ * note : DFS, BFS 기본 둘다 해보는 문제zB
  */
 public class No1260 {
     static StringBuilder sb = new StringBuilder();
