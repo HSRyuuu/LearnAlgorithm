@@ -12,7 +12,8 @@ import java.util.Arrays;
  * package : CodingTest.graph.다익스트라
  * class name : No1753.java
  * date : 2023-06-27 오후 8:43
- * note : 최단경로 / gold 4 / 다익스트라
+ * note : 최단경로 / gold 4 / 다익스트라 알고리즘 완전 기본
+ *
  * https://www.acmicpc.net/problem/1753
  */
 
@@ -56,10 +57,15 @@ public class No1753 {
         }
 
         PriorityQueue<Edge> pq = new PriorityQueue<>((x, y) -> x.weight - y.weight);
+        boolean[] visited = new boolean[V+1];
         pq.offer(new Edge(start, 0));
 
         while (!pq.isEmpty()) {
             Edge startNode = pq.poll();
+            if(visited[startNode.to]){
+                continue;
+            }
+            visited[startNode.to] = true;
 
             for (int i = 0; i < graph[startNode.to].size(); i++) {
                 Edge toNode = graph[startNode.to].get(i);
