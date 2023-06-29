@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * package : CodingTest.graph.벨만_포드
  * class name : No1865.java
  * date : 2023-06-28 오후 9:50
- * info : 웜홀 / gold 3 / 벨만포드
+ * ino : 웜홀 / gold 3 / 벨만포드
  * link :https://www.acmicpc.net/problem/1865
  * comment : 모든 노드를 시작점으로 해서 돌려봐야 함
  */

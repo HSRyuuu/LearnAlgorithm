@@ -61,21 +61,21 @@ public class No1753 {
         pq.offer(new Edge(start, 0));
 
         while (!pq.isEmpty()) {
-            Edge startNode = pq.poll();
-            if(visited[startNode.to]){
+            Edge cur = pq.poll();
+            if(visited[cur.to]){
                 continue;
             }
-            visited[startNode.to] = true;
+            visited[cur.to] = true;
 
-            for (int i = 0; i < graph[startNode.to].size(); i++) {
-                Edge toNode = graph[startNode.to].get(i);
+            for (int i = 0; i < graph[cur.to].size(); i++) {
+                Edge tmp = graph[cur.to].get(i);
 
-                if (distance[startNode.to] == Integer.MAX_VALUE) {
+                if (distance[cur.to] == Integer.MAX_VALUE) {
                     continue;
                 }
-                if (distance[toNode.to] > distance[startNode.to] + toNode.weight) {
-                    distance[toNode.to] = distance[startNode.to] + toNode.weight;
-                    pq.offer(new Edge(toNode.to, distance[toNode.to]));
+                if (distance[tmp.to] > distance[cur.to] + tmp.weight) {
+                    distance[tmp.to] = distance[cur.to] + tmp.weight;
+                    pq.offer(new Edge(tmp.to, distance[tmp.to]));
                 }
             }
         }

@@ -6,6 +6,12 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+/**
+ * package : CodingTest.data_structure.stack
+ * class name : No17298.java
+ * date : 2023-06-29 오후 10:08
+ * info : 오큰수 / gold 4 / 스택
+ */
 public class No17298 {
     public static void main(String[] args) throws IOException {
         StringBuilder sb = new StringBuilder();
