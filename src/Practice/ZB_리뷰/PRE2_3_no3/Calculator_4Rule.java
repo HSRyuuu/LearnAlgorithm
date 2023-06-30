@@ -1,4 +1,4 @@
-package Practice.프로그래머스리뷰.PRE2_3_no3;
+package Practice.ZB_리뷰.PRE2_3_no3;
 
 import java.util.*;
 

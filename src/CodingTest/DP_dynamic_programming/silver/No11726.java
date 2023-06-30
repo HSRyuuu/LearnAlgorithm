@@ -1,4 +1,4 @@
-package CodingTest.DP_dynamic_programming;
+package CodingTest.DP_dynamic_programming.silver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
