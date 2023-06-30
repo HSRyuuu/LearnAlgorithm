@@ -11,6 +11,8 @@ import java.util.StringTokenizer;
  * class name : No17298.java
  * date : 2023-06-29 오후 10:08
  * info : 오큰수 / gold 4 / 스택
+ * link : https://www.acmicpc.net/problem/17298
+ * https://school.programmers.co.kr/learn/courses/30/lessons/154539 -> 비슷한 문제
  */
 public class No17298 {
     public static void main(String[] args) throws IOException {
@@ -27,7 +29,7 @@ public class No17298 {
         Stack<Integer> stack = new Stack<>();
         for(int i=0;i<N;i++){
             int x = arr[i];
-            while(!stack.isEmpty() && arr[stack.peek()]<x){
+            while(!stack.isEmpty() && arr[stack.peek()] < x){
                 arr[stack.pop()] = x;
             }
             stack.push(i);
