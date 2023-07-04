@@ -38,11 +38,11 @@ class Solution {
         char[] arr = S.toCharArray();
 
         Queue<Character> queue = new LinkedList<>();
+        queue.offer(arr[0]); //첫번째 문자는 '-' 또는 숫자
 
-        for(int i = 0; i < arr.length; i++){
+        for(int i = 1; i < arr.length; i++){
             char ch = arr[i];
-
-            if(ch == '+' || ch == '-' && i != 0){
+            if(ch == '+' || ch == '-'){
                 answer += calc(queue);
             }
             queue.offer(ch);
@@ -59,19 +59,21 @@ class Solution {
         double result = 1;
 
         //첫번째 문자('+'' or '-' or 숫자) 확인
-        if(queue.peek() == '-'){
+        if(queue.peek() == '-'){ //첫번째 문자가 '-' 일 때 result를 -1로 바꿔줌
             result = -1;
             queue.poll();
-        }else if(queue.peek() == '+'){
+        }else if(queue.peek() == '+'){//첫번째 문자가 '+' 일 때
             queue.poll();
         }
 
-        char last = '*';
+        char last = '*'; // result = -1 또는 1이니까 맨처음 default를 *로 설정하면 있으나 마나임.
         while(!queue.isEmpty()){
             char peek = queue.peek();
 
+            //연산자가 나온다면 이전까지의 결과를 계산하고, last에 해당 연산자를 저장해 줌.
             if(peek == '*' || peek == '/'){
-                result = updateResult(sb, result, last);
+                result = updateResult(sb.toString(), result, last);
+                sb.setLength(0);
                 last = peek;
             }
             else{
@@ -80,15 +82,13 @@ class Solution {
 
             queue.poll();
         }
-
-        result = updateResult(sb, result, last);
+        //마지막에 남은 숫자를 계산해 줌.
+        result = updateResult(sb.toString(), result, last);
 
         return result;
     }
 
-    static double updateResult(StringBuilder sb, double result, char last){
-        String str = sb.toString();
-        sb.setLength(0);
+    static double updateResult(String str, double result, char last){
 
         if(last == '*'){
             return result * Double.parseDouble(str);
