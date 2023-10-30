@@ -49,3 +49,46 @@ public class No1654{
         return cnt;
     }
 }
+
+class D_23_10_30 {
+    static long[] lines;
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int K = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+
+        lines = new long[K];
+        long max = 0;
+        for(int i = 0; i < K; i++){
+            lines[i] = Long.parseLong(br.readLine());
+            max = Math.max(max, lines[i]);
+        }
+        long left = 0L;
+        long right = max + 1;
+
+        while(left < right){
+            long mid = (right + left)/ 2; //나무 조각 하나의 길이
+            long amount = cut(mid); //자른 개수
+
+            if(amount >= N){
+                left = mid + 1;
+            }else{
+                right = mid;
+            }
+        }
+        System.out.println(left - 1);
+
+    }
+
+    static int cut(long len){
+        int cnt = 0;
+
+        for (long line : lines) {
+            cnt += line / len;
+        }
+        return cnt;
+    }
+}
