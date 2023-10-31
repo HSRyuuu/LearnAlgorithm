@@ -49,3 +49,39 @@ public class No1541{
         System.out.println(sum);
     }
 }
+
+class Day1101 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
+
+        String str = br.readLine();
+        int sum = 0;
+
+        boolean isMinus = false;
+        int lastIdx = 0;
+        for(int i = 0; i < str.length(); i++){
+            char ch = str.charAt(i);
+
+            if(i == str.length() - 1){
+                i++;
+            }else if(ch != '-' && ch != '+'){
+                continue;
+            }
+
+            int num = Integer.parseInt(str.substring(lastIdx, i));
+
+            if(!isMinus){
+                sum += num;
+                if(ch == '-'){
+                    isMinus = true;
+                }
+            }else{
+                sum -= num;
+            }
+            lastIdx = i + 1;
+        }
+
+        System.out.println(sum);
+
+    }
+}
