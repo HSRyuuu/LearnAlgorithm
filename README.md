@@ -6,7 +6,7 @@
 - binary_search
 - brute_force
 - data_structure
-- grahp
+- graph
 - greedy
 - mathematics
 - sort
