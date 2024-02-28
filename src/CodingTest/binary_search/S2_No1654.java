@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  * info : 랜선 자르기 silver2
  * link :
  */
-public class No1654 {
+public class S2_No1654 {
 
     static long[] lines;
     static int K, N;
