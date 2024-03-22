@@ -1,5 +1,6 @@
-.idea
-out/
-LearnAlgorithm.iml
+# Project exclude paths
+/out/
+/src/ZB_REVIEW/
 
 src/Main.java
+src/TEST.java
