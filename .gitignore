@@ -1,5 +1,5 @@
 .idea
 out/
 LearnAlgorithm.iml
-src/Main.java
-src/Test.java
+!/src/Main.java
+!/src/Test.java
