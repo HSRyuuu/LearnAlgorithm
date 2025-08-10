@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 /**
  * 문제명:
  * Tear:
+ * Algorithm:
  */
 public class BaekJoonMain {
     public static void main(String[] args) throws IOException {
