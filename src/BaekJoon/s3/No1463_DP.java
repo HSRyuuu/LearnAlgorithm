@@ -1,16 +1,15 @@
-package BaekJoon.silver.s3;
+package BaekJoon.s3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 /**
  * 문제명: 1로 만들기
  * Tear: S3
  * Algorithm: DP
  */
-public class No1463 {
+public class No1463_DP {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         int num = Integer.parseInt(br.readLine());
