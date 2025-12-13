@@ -1,4 +1,4 @@
-package BaekJoon;
+package Algorithm.Base;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
  * @문제명:
  * @Tear:
  * @Algorithm:
+ * @Link:
  */
 public class Main {
 
