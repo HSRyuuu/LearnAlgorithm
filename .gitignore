@@ -1,8 +1,11 @@
 # Project exclude paths
 /out/
+*.class
+.test-space/
 /src/ZB_REVIEW/
 
 src/Main.java
 src/TEST.java
 /LearnAlgorithm.iml
 /.idea/
+.omc/
