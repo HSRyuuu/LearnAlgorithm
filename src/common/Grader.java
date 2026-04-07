@@ -1,4 +1,4 @@
-package Algorithm.Base;
+package common;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -8,7 +8,7 @@ import java.util.Objects;
  * 모든 문제 파일에서 import하여 사용
  * <p>
  * 사용법:
- * import static Algorithm.Base.Grader.*;
+ * import static common.Grader.*;
  * grade(1, "일반 케이스", expected, actual);
  */
 public class Grader {

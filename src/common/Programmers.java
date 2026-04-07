@@ -1,4 +1,4 @@
-package Algorithm.Base;
+package common;
 
 import java.io.IOException;
 

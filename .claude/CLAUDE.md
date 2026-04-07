@@ -8,8 +8,9 @@ use generate-problem to setting code base
 
 ```
 src/
+  common/             # Shared utilities (Grader.java, Main.java, Programmers.java templates)
+  problem_solving/    # New problem-solving practice (organized by algorithm category)
   Algorithm/          # Programmers problems organized by algorithm (recent)
-    Base/             # Template files (Main.java, Programmers.java)
     Hash/             # Hash problems (Lv1~Lv3)
     StackQueue/       # Stack/Queue problems
     DP/               # Dynamic Programming

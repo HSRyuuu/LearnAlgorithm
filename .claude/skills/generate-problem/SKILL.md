@@ -60,6 +60,7 @@ description: 코딩테스트 문제 출제 및 풀이 환경 생성 스킬. 알�
 기존 풀이 확인 방법:
 ```
 # Glob으로 해당 알고리즘 폴더의 기존 파일들 확인
+src/problem_solving/{카테고리}/*.java
 src/Algorithm/{카테고리}/*.java
 src/CodingTest/{카테고리}/**/*.java
 ```
@@ -68,14 +69,16 @@ src/CodingTest/{카테고리}/**/*.java
 
 아래 보일러플레이트 구조로 파일을 생성한다. 사용자는 `solution()` 메서드만 구현하면 된다.
 
-**파일 위치:** `src/Algorithm/{카테고리}/` 폴더에 생성
-**파일명 규칙:** `{AlgorithmName}_{ProblemName}.java` 형식
-- 예: `Queue_BridgeTruck.java`, `DP_ClimbStairs.java`, `BFS_Maze.java`
-- AlgorithmName: 핵심 알고리즘 (Queue, Stack, Hash, DP, BFS, DFS, Greedy, BinarySearch, TwoPointer, Backtracking 등)
-- ProblemName: 문제를 영문으로 간결하게 표현 (PascalCase)
+**파일 위치:** `src/problem_solving/{카테고리}/` 폴더에 생성
+**파일명 규칙:** `{난이도 프리픽스}_{한글_문제명}.java` 형식
+- 프로그래머스: `LV1`, `LV2`, `LV3` 등 레벨 프리픽스
+  - 예: `LV2_다리를_지나는_트럭.java`, `LV3_베스트앨범.java`
+- 백준: `S5`, `S4`, `S1`, `G5`, `G3` 등 티어 프리픽스
+  - 예: `S1_미로_탐색.java`, `G5_탑.java`
+- 한글 문제명에서 공백은 `_`(언더스코어)로 치환
 
 **문제 설명 파일:** 동일한 이름의 `.md` 파일을 같은 폴더에 생성
-- 예: `Queue_BridgeTruck.java` → `Queue_BridgeTruck.md`
+- 예: `LV2_다리를_지나는_트럭.java` → `LV2_다리를_지나는_트럭.md`
 - 문제 설명, 입출력 형식, 제한 조건, 예시를 마크다운으로 작성
 
 #### 문제 설명 파일 (.md) 템플릿
@@ -111,10 +114,10 @@ src/CodingTest/{카테고리}/**/*.java
 #### Java 보일러플레이트 템플릿
 
 ```java
-package Algorithm.{카테고리};
+package problem_solving.{카테고리};
 
 import java.util.*;
-import static Algorithm.Base.Grader.*;
+import static common.Grader.*;
 
 /**
  * @문제명: {문제 이름}
@@ -122,7 +125,7 @@ import static Algorithm.Base.Grader.*;
  * @Algorithm: {알고리즘}
  * @Link: {출처 URL 또는 "자체 출제"}
  */
-public class {AlgorithmName}_{ProblemName} {
+public class {난이도프리픽스}_{한글_문제명} {
 
     public static void main(String[] args) {
 
@@ -168,7 +171,7 @@ public class {AlgorithmName}_{ProblemName} {
    - 이미 정렬된/역순 정렬된 입력
    - 결과가 0 또는 음수인 경우
 3. **solution() 메서드**: 반환 타입과 매개변수를 정확히 설정하고, 기본 반환값을 넣어 컴파일 에러 없이 실행 가능하게 한다
-4. **grade() 사용**: `import static Algorithm.Base.Grader.*;`로 임포트하여 사용. 각 문제 파일에 채점 코드를 직접 작성하지 않는다
+4. **grade() 사용**: `import static common.Grader.*;`로 임포트하여 사용. 각 문제 파일에 채점 코드를 직접 작성하지 않는다
 5. **문제 설명 .md 파일**: 문제를 읽고 바로 이해할 수 있도록 충분히 상세하게 작성. 입출력 예시 포함. Java 파일과 동일한 이름으로 같은 폴더에 생성
 6. **import**: 필요한 import만 추가 (java.util.* 기본 포함)
 7. **파일 생성 순서**: .md 파일 먼저 생성 → .java 파일 생성
